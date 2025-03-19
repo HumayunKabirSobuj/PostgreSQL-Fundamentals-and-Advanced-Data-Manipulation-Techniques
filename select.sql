@@ -1,3 +1,4 @@
+-- Active: 1742229780318@@127.0.0.1@5432@ph
 CREATE TABLE students (
     student_id SERIAL PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
@@ -52,7 +53,7 @@ SELECT DISTINCT blood_group from students;
 
 -- Select students from the USA 
 
--- Select students with 'A' grade in Physics 
+-- Select students with 'A' grade in Biology 
 
 -- Select students with a specific blood group ('A+') 
 
@@ -61,3 +62,40 @@ SELECT DISTINCT blood_group from students;
 -- -Select students from the USA or from Australia and the age is 20 
 
 -- -Select students with a grade of 'A' or 'B' in Math or Physics: 
+
+
+-- Solution
+
+-- Select students from the USA 
+
+SELECT * FROM students
+    WHERE country = 'USA';
+
+-- Select students with 'A' grade in Biology 
+
+SELECT * FROM students
+    WHERE grade = 'A' AND course = 'Biology';
+
+
+-- Select students with a specific blood group ('A+') 
+
+SELECT * FROM students
+    WHERE blood_group ='A+';
+
+
+-- Select students from the USA or from Australia 
+
+SELECT * FROM students
+    WHERE country='USA' OR country='Australia';
+
+-- -Select students from the USA or from Australia and the age is 20 
+SELECT * FROM students
+    WHERE (country='USA' OR country='Australia') AND age=20;
+
+
+
+
+-- Select student older then 20 years
+
+SELECT * FROM students
+    where age > 20;
