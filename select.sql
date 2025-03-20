@@ -326,3 +326,14 @@ SELECT COALESCE(NULL, NULL, 5)
 SELECT COALESCE(email, 'Email Not Provided') as "Email" FROM students;
 
 SELECT * FROM students;
+
+-- IN Operator
+
+SELECT * FROM students
+    WHERE country = 'USA' OR country ='Canada' OR country = 'UK';
+
+SELECT * FROM students
+    WHERE country IN('USA','UK','Canada');
+
+SELECT * FROM students
+    WHERE country NOT IN('USA','UK','Canada');
