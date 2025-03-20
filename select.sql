@@ -322,18 +322,62 @@ SELECT * FROM students WHERE email IS NOT NULL;
 
 SELECT COALESCE(NULL, NULL, 5)
 
-
-SELECT COALESCE(email, 'Email Not Provided') as "Email" FROM students;
+SELECT COALESCE(email, 'Email Not Provided') as "Email"
+FROM students;
 
 SELECT * FROM students;
 
 -- IN Operator
 
-SELECT * FROM students
-    WHERE country = 'USA' OR country ='Canada' OR country = 'UK';
+SELECT *
+FROM students
+WHERE
+    country = 'USA'
+    OR country = 'Canada'
+    OR country = 'UK';
 
-SELECT * FROM students
-    WHERE country IN('USA','UK','Canada');
+SELECT * FROM students WHERE country IN ('USA', 'UK', 'Canada');
 
-SELECT * FROM students
-    WHERE country NOT IN('USA','UK','Canada');
+SELECT * FROM students WHERE country NOT IN ('USA', 'UK', 'Canada');
+
+-- BETWEEN Operator
+
+SELECT * FROM students WHERE age BETWEEN 20 AND 24;
+
+SELECT *
+FROM students
+WHERE
+    dob BETWEEN '2001-01-01' AND '2005-01-01'
+ORDER BY dob ASC;
+
+-- LINK Operator
+
+SELECT * FROM students WHERE first_name LIKE '__a%';
+
+-- ILIKE Operator
+
+SELECT * FROM students WHERE first_name ILIKE 'a%';
+
+-- LIMIT
+
+SELECT * FROM students LIMIT 5;
+
+-- OFFSET
+
+SELECT * FROM students LIMIT 5 OFFSET 5;
+
+-- Pagination
+
+-- page-1
+SELECT * FROM students LIMIT 5 OFFSET 5 * 0;
+-- page-2
+SELECT * FROM students LIMIT 5 OFFSET 5 * 1;
+-- page-3
+SELECT * FROM students LIMIT 5 OFFSET 5 * 2;
+
+-- Data Deletion
+
+SELECT * FROM students;
+
+DELETE FROM students 
+    WHERE grade = 'B';
